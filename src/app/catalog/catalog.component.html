@@ -2,8 +2,22 @@
   <ul class="products">
     <li class="product-item" *ngFor="let product of products | async">
       <bot-product-details [product]="product">
-        <button class="cta" (click)="addToCart(product)">Buy</button>
+        <!-- <button class="cta" (click)="addToCart(product)">Buy</button> -->       
       </bot-product-details>
     </li>
   </ul>
 </div>
+@for (button of buttons; track button.id) {
+  <my-button
+    [buttonText]="button.text"
+    [isLoading]="button.loading"
+    [buttonId]="button.id"
+    (buttonClick)="handleButtonClick($event)"
+  ></my-button>
+}
+
+<my-button [buttonId]="button.id"
+[buttonText]="button.text"
+[isLoading]="button.loading"
+(buttonClick)="handleAButton(button.id)"
+></my-button>

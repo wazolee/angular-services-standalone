@@ -1,0 +1,11 @@
+<button
+  class="loading-button"
+  [disabled]="disabled || isLoading"
+  (click)="onClick()"
+>
+  @if (!isLoading) {
+    {{ buttonText }}
+  } @else {
+    <span class="loader"></span>
+  }
+</button>
